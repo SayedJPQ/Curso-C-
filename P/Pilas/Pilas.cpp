@@ -7,15 +7,26 @@ struct Nodo{
 	Nodo *siguiente;
 };
 void agregarpila(Nodo *&,int);
+void eliminarpila(Nodo *&, int &);
 int main(){
 	Nodo *pila = NULL;
-	int n1,n2;
+	int dato;
 	cout<<"Digite un numero: ";
-	cin>>n1;
-	agregarpila(pila,n1);
+	cin>>dato;
+	agregarpila(pila,dato);
 	cout<<"Digite otro numero: ";
-	cin>>n2;
-	agregarpila(pila,n2);
+	cin>>dato;
+	agregarpila(pila,dato);
+	cout<<"\nEliminando elementos de la pila: ";
+	while(pila != NULL){
+		eliminarpila(pila,dato);
+		if(pila != NULL){
+			cout<<dato<<" , ";
+		}
+		else{
+			cout<<dato<<".";
+		}
+	}
 	getch();
 	return 0;
 }
@@ -24,4 +35,10 @@ void agregarpila(Nodo *&pila, int n){
 	nuevonodo->dato = n;
 	nuevonodo->siguiente = pila;
 	pila = nuevonodo;
+}
+void eliminarpila(Nodo *&pila, int&n){
+	Nodo *aux = pila;
+	n = aux->dato;
+	pila = aux->siguiente;
+	delete aux;
 }
