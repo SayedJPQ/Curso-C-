@@ -20,6 +20,6 @@ void escribir(){
 	}
 	cout<<"\nDigite texto del archivo: ";
 	getline(cin,frase);
-	archivo<<frase;
+	archivo<<frase<<endl;
 	archivo.close();
 }
